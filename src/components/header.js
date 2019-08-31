@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   titleLink: {
-    color: "#fafafa",
+    color: "#212121",
     textDecoration: "none",
     "&:hover": {
       textDecoration: "none",

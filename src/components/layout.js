@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
 import {
   AppBar,
   Container,
@@ -15,8 +16,13 @@ import {
   Slide,
   useScrollTrigger,
 } from "@material-ui/core"
-
 import Header from "./header"
+
+const useStyles = makeStyles(theme => ({
+  appBar: {
+    background: "#ffc82a",
+  },
+}))
 
 const HideOnScroll = props => {
   const { children, window } = props
@@ -42,6 +48,8 @@ HideOnScroll.propTypes = {
 }
 
 const Layout = props => {
+  const classes = useStyles()
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -56,7 +64,7 @@ const Layout = props => {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar color="primary">
+        <AppBar className={classes.appBar}>
           <Header siteTitle={data.site.siteMetadata.title} />
         </AppBar>
       </HideOnScroll>
