@@ -1,1 +1,1 @@
-# Python_Club
+# Python Club for Physicists
